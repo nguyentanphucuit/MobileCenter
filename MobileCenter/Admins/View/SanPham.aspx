@@ -7,7 +7,7 @@
         <asp:DataList ID="dtlSanpham" runat="server"  RepeatColumns="3" Width="750px" CellPadding="0">
         <ItemTemplate>
         <asp:Panel ID="Panel1" runat="server" BorderColor="#E0E0E0" BorderStyle="Solid" BorderWidth="1px" Width="250px">
-            <table cellpadding="0" cellspacing="0" style="width: 250px; height:300px">
+            <table style="width: 250px; height:150px">
                 <tr>
                     <div>             
                         <div class="hovereffect" style=" margin: auto;width: 50%;" >                      
@@ -18,7 +18,7 @@
                 </tr>
                 <tr>
                
-                    <td colspan="2" rowspan="1" style="width: 250px; font-size:20px" align="center" valign="middle">
+                    <td colspan="2" rowspan="1" style="width: 250px; font-size:20px;"<%-- align="center" valign="middle"--%>>
                           <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("IdSanPham","SuaSanPham.aspx?IdSanPham={0}") %>'
                             Text='<%# Eval("TenSanPham") %>'></asp:HyperLink>
                         <br />
@@ -31,7 +31,6 @@
         </asp:Panel>
         </ItemTemplate>
     </asp:DataList>
-    </div>
 </asp:Content>
 
 

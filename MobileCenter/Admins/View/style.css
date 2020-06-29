@@ -569,13 +569,6 @@ p {
 
 /*=== Styling Forms ===*/
 
-input.btn {
-    background: none;
-    border: 0;
-    margin: 0;
-    padding: 0;
-}
-
 select {
     padding: 1px;
 }
@@ -1448,4 +1441,8 @@ select {
 .hovereffect:hover p.icon-links a:first-child {
     -webkit-transition-delay: 0.2s;
     transition-delay: 0.2s;
+}
+
+td {
+    padding: 10px;
 }
