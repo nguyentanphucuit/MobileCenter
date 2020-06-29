@@ -10,7 +10,7 @@
             <table cellpadding="0" cellspacing="0" style="width: 250px; height:300px">
                 <tr>
                     <div>             
-                        <div class="hovereffect">                      
+                        <div class="hovereffect" style=" margin: auto;width: 50%;" >                      
                          <asp:Image style="font-size:20px ; align-items:center"   ID="Image1" runat="server" Height="150px" 
                             ImageUrl='<%# Eval("IdHinhSanPham","~/View/HienThiHinhSanPham.ashx?IdHinhSanPham={0}") %>'/>                                 
                     </div>
