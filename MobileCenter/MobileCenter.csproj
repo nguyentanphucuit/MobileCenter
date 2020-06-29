@@ -488,6 +488,20 @@
     <Content Include="ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Admins\View\images\logo.psd" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="images\slide1.jpg" />
+    <Content Include="images\slide2.jpg" />
+    <Content Include="images\slide3.jpg" />
+    <Content Include="images\slide4.jpg" />
+    <Content Include="js\affix.js" />
+    <Content Include="js\app.js" />
+    <Content Include="js\coin-slider.min.js" />
+    <Content Include="js\cufon-chunkfive.js" />
+    <Content Include="js\cufon-yui.js" />
+    <Content Include="js\jquery-1.4.2.min.js" />
+    <Content Include="js\menusm.js" />
+    <Content Include="js\script.js" />
+    <Content Include="js\slideshow.js" />
+    <Content Include="js\swiper.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -705,6 +719,7 @@
     <Folder Include="Admins\View\App_LocalResources\" />
     <Folder Include="App_Data\" />
     <Folder Include="Assets\" />
+    <Folder Include="css\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

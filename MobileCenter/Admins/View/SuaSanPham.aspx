@@ -16,11 +16,12 @@
                 <CKEditor:CKEditorControl ID="CKEditorControlMoTa" runat="server"></CKEditor:CKEditorControl>
         </tr>
         <tr>
-            <td style="width: 300px" align="center">Đơn giá</td>
-            <td style="width: 700px">
+            <td style="width: 100px; height:50px;" align="center" class="border border-primary">Đơn giá</td>
+            <td>
                 <asp:TextBox ID="textGia" class="form-control" runat="server" Width="250px" Height="30px" style="margin-top:20px; font-size:15px"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="textGia"
-                    ErrorMessage="Giá sản phẩm không để trống"></asp:RequiredFieldValidator></td>
+                    ErrorMessage="Giá sản phẩm không để trống"></asp:RequiredFieldValidator>
+            </td>
         </tr>
         <tr>
             <td style="width: 300px" align="center">Danh mục</td>
@@ -37,12 +38,13 @@
         <tr>
             <td style="width: 300px"></td>
             <td style="width: 700px">
+                
                 <asp:FileUpload ID="fileuploadHinhSanPham" runat="server" /></td>
         </tr>
         <tr>
             <td style="width: 300px"></td>
             <td style="width: 700px">
-                <asp:Button class="btn btn-outline-primary" type="submit" style ="margin-top:20px; font-size:15px" ID="btnCapNhat" runat="server" Text="Cập Nhật" OnClick="btnCapNhat_Click" />
+                <asp:Button class="btn btn-outline-primary" type="submit" style ="margin-top:20px; margin-right:100px; font-size:15px" ID="btnCapNhat" runat="server" Text="Cập Nhật" OnClick="btnCapNhat_Click" />
                 <asp:Button class="btn btn-outline-primary" type="submit" style ="margin-top:20px; font-size:15px" ID="btnBoQua" runat="server" Text="Bỏ Qua" OnClick="btnBoQua_Click" /></td>
         </tr>
     </table>
