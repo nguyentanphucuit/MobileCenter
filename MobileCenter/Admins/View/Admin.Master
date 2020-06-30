@@ -2,30 +2,31 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" >
-    
-    
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <%--<link rel="stylesheet" type="text/css" href="style.css" media="screen" />--%>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<link rel="stylesheet" type="text/css" href="https://localhost:44375/bootstrap/css/bootstrap.min.css" media="screen" />
+
+<%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">--%>
+<%--<link rel="stylesheet" type="text/css" href="style.css" media="screen" />--%>
 <head runat="server">
-    <title>Trang quản trị viên</title>
-    <%--<link href="web/admin.css" type="text/css" rel="Stylesheet" />--%> 
+    <title>Trang quản trị viên</title>a
+    <%--<link href="web/admin.css" type="text/css" rel="Stylesheet" />--%>
     <link rel="stylesheet" type="text/css" href="~/Admins/View/affix.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="~/Admins/View/style.css" media="screen" />
 </head>
-   
+
 <body>
-    
+
     <form id="form1" runat="server">
-    <div>
-      <table align="center" border="0" cellpadding="0" cellspacing="0" style="width: 1000px">
-            
-            <tr>
-                <td style="width: 179px;  background-color: #ffffff; height: 277px;" valign="top">
-                    <table border="0" cellpadding="0" cellspacing="0" style="width: 179px;">
-                        <nav class="navbar"  style="align-items: initial;">
+        <div>
+            <table align="center" border="0" cellpadding="0" cellspacing="0" style="width: 1000px">
+
+                <tr>
+                    <td style="width: 179px; background-color: #ffffff; height: 277px;" valign="top">
+                        <table border="0" cellpadding="0" cellspacing="0" style="width: 179px;">
+                            <nav class="navbar" style="align-items: initial;">
                             <ul class="nav flex-column">
                                <li class="nav-item">
                                  <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/admin/themsanpham">ĐĂNG SẢN PHẨM</asp:HyperLink>
@@ -36,30 +37,27 @@
                                <li class="nav-item">
                                  <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/admin/thongkedonhang">THỐNG KÊ ĐƠN HÀNG</asp:HyperLink>
                                </li>
-                               <li class="nav-item">
-                                 <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Admin/quanlytintuc.aspx">ĐĂNG TIN</asp:HyperLink>
-                               </li>
                                 <li class="nav-item">
-                                 <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/GioiThieuSanPham.aspx">TRANG CHỦ</asp:HyperLink>
+                                 <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="">TRANG CHỦ</asp:HyperLink>
                                </li>
                                 <li class="nav-item">
                                  &nbsp;<asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">ĐĂNG XUẤT</asp:LinkButton>
                                </li>
                             </ul>
-                        </nav>                                       
-                    </table>
-                </td>
-                   
-                <td style="padding: 10px; background-color: #ffffff; width: 821px; height: 277px;">
-                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                    </asp:ContentPlaceHolder>
-                </td>
-            </tr>
+                        </nav>
+                        </table>
+                    </td>
 
-        </table>
-    </div>
+                    <td style="padding: 10px; background-color: #ffffff; width: 821px; height: 277px;">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
     </form>
 </body>
-    <script type="text/javascript " src="https://localhost:44375/Admins/View/jquery-1.4.2.min.js "></script>
+<script type="text/javascript " src="https://localhost:44375/Admins/View/jquery-1.4.2.min.js "></script>
 
 </html>

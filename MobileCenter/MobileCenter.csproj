@@ -295,6 +295,14 @@
     <Content Include="Admins\View\style.css" />
     <Content Include="Admins\View\SuaSanPham.aspx" />
     <Content Include="Admins\View\ThongKeDonHang.aspx" />
+    <Content Include="bootstrap\css\bootstrap-theme.css" />
+    <Content Include="bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="bootstrap\css\bootstrap.css" />
+    <Content Include="bootstrap\css\bootstrap.min.css" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bootstrap\js\bootstrap.js" />
+    <Content Include="bootstrap\js\bootstrap.min.js" />
+    <Content Include="bootstrap\js\npm.js" />
     <Content Include="ckeditor\adapters\jquery.js" />
     <Content Include="ckeditor\bin\CKEditor.NET.dll" />
     <Content Include="ckeditor\build-config.js" />
@@ -465,6 +473,14 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="css\admin.css" />
+    <Content Include="css\affix.css" />
+    <Content Include="css\menusm.css" />
+    <Content Include="css\pagenavi-css.css" />
+    <Content Include="css\shoping-card.css" />
+    <Content Include="css\slideshow.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\superfish.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -487,6 +503,14 @@
     <Content Include="ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Admins\View\images\logo.psd" />
+    <Content Include="bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="bootstrap\css\bootstrap-theme.min.css.map" />
+    <Content Include="bootstrap\css\bootstrap.css.map" />
+    <Content Include="bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="images\slide1.jpg" />
     <Content Include="images\slide2.jpg" />
@@ -716,10 +740,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admins\View\App_LocalResources\" />
     <Folder Include="App_Data\" />
     <Folder Include="Assets\" />
-    <Folder Include="css\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
