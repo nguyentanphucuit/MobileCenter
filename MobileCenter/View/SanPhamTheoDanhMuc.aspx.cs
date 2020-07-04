@@ -15,6 +15,8 @@ namespace MobileCenter.View
         {
             if (!IsPostBack)
             {
+                ((Home)this.Master).isVisible = false;
+
                 HienThiSanPham();
             }
         }
@@ -25,14 +27,7 @@ namespace MobileCenter.View
             sanPham.IdDanhMucSanPham = int.Parse(Request.QueryString["IdDanhMucSanPham"]);
             SanPhamBUS sanPhamBUS = new SanPhamBUS();
             sanPhamBUS._sanPham = sanPham;
-            try
-            {
-                sanPhamBUS.SelectByDanhMuc();
-            }
-            catch
-            {
-                Response.Redirect("Trangloi.aspx");
-            }
+            sanPhamBUS.SelectByDanhMuc();
             dtlSanPhamDM.DataSource = sanPhamBUS.KetQua;
             dtlSanPhamDM.DataBind();
         }

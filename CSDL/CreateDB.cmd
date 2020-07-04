@@ -1,1 +1,1 @@
-SQLCMD -S DESKTOP-D0BFATD\SQLEXPRESS -E -i MobileCenterDB.sql
+SQLCMD -S DESKTOP-CVJ95LF -E -i MobileCenterDBscript.sql

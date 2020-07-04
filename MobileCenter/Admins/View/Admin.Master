@@ -5,59 +5,179 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 
-<link rel="stylesheet" type="text/css" href="https://localhost:44375/bootstrap/css/bootstrap.min.css" media="screen" />
-
-<%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">--%>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <%--<link rel="stylesheet" type="text/css" href="style.css" media="screen" />--%>
 <head runat="server">
-    <title>Trang quản trị viên</title>a
+    <title>Trang quản trị viên</title>
     <%--<link href="web/admin.css" type="text/css" rel="Stylesheet" />--%>
     <link rel="stylesheet" type="text/css" href="~/Admins/View/affix.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="~/Admins/View/style.css" media="screen" />
+    <script type="text/javascript " src="https://localhost:44375/Admins/View/jquery-1.4.2.min.js "></script>
+    <script  type="text/javascript" src="https://localhost:44375/Admins/View/script.js"></script>
+    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" href="~/Admins/View/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="~/Admins/View/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/Admins/View/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/Admins/View/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/Admins/View/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/Admins/View/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="~/Admins/View/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/Admins/View/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/Admins/View/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="~/Admins/View/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/Admins/View/css/util.css">
+	<link rel="stylesheet" type="text/css" href="~/Admins/View/css/main.css">
 </head>
 
 <body>
 
     <form id="form1" runat="server">
-        <div>
-            <table align="center" border="0" cellpadding="0" cellspacing="0" style="width: 1000px">
+       <%-- <div>
+            <table align="center" border="0" cellpadding="0" cellspacing="0" style="width: 100%">
 
                 <tr>
-                    <td style="width: 179px; background-color: #ffffff; height: 277px;" valign="top">
-                        <table border="0" cellpadding="0" cellspacing="0" style="width: 179px;">
-                            <nav class="navbar" style="align-items: initial;">
-                            <ul class="nav flex-column">
-                               <li class="nav-item">
-                                 <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/admin/themsanpham">ĐĂNG SẢN PHẨM</asp:HyperLink>
-                               </li>
-                               <li class="nav-item">
-                                 <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/admin/sanpham">SẢN PHẨM</asp:HyperLink>
-                               </li>
-                               <li class="nav-item">
-                                 <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/admin/thongkedonhang">THỐNG KÊ ĐƠN HÀNG</asp:HyperLink>
-                               </li>
-                                <li class="nav-item">
-                                 <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="">TRANG CHỦ</asp:HyperLink>
-                               </li>
-                                <li class="nav-item">
-                                 &nbsp;<asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">ĐĂNG XUẤT</asp:LinkButton>
-                               </li>
-                            </ul>
-                        </nav>
-                        </table>
-                    </td>
+                        <td id="menu" runat="server" style="width: 179px; background-color: #ffffff; height: 277px;" valign="top">
+                            <table border="0" cellpadding="0" cellspacing="0" style="width: 179px;">
+                                <nav class="navbar" style="align-items: initial;">
+                                <ul class="nav flex-column">
+                                   <li class="nav-item">
+                                     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/admin/themsanpham">ĐĂNG SẢN PHẨM</asp:HyperLink>
+                                   </li>
+                                   <li class="nav-item">
+                                     <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/admin/sanpham">SẢN PHẨM</asp:HyperLink>
+                                   </li>
+                                   <li class="nav-item">
+                                     <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/admin/thongkedonhang">THỐNG KÊ ĐƠN HÀNG</asp:HyperLink>
+                                   </li>
+                                    <li class="nav-item">
+                                     <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="">TRANG CHỦ</asp:HyperLink>
+                                   </li>
+                                    <li class="nav-item">
+                                     <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/admin/thongke">THỐNG KÊ</asp:HyperLink>
+                                   </li>
+                                    <li class="nav-item">
+                                     &nbsp;<asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">ĐĂNG XUẤT</asp:LinkButton>
+                                   </li>
 
-                    <td style="padding: 10px; background-color: #ffffff; width: 821px; height: 277px;">
+                                </ul>
+                            </nav>
+                            </table>
+                        </td>
+                    <td >
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                         </asp:ContentPlaceHolder>
                     </td>
                 </tr>
 
             </table>
-        </div>
+        </div>--%>
+
+        <!-- Vertical navbar -->
+<div runat="server" id="menu">
+    <div class="vertical-nav bg-white" id="sidebar" style="z-index:11111"  >
+  <div class="py-4 px-3 mb-4 bg-light">
+    <div class="media d-flex align-items-center"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+      <div class="media-body">
+        <h4 class="m-0">Jason Doe</h4>
+        <p class="font-weight-light text-muted mb-0">Web developer</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Main</p>
+
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href="~/admin/themsanpham" id="HyperLink1" class="nav-link text-dark font-italic bg-light" runat="server">
+                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                ĐĂNG SẢN PHẨM
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="~/admin/sanpham" class="nav-link text-dark font-italic" id="HyperLink2" runat="server">
+                <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                SẢN PHẨM
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark font-italic">
+                <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                TRANG CHỦ
+            </a>
+    </li>
+  </ul>
+
+  <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Charts</p>
+
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href="~/admin/thongkedonhang" class="nav-link text-dark font-italic" id="HyperLink4" runat="server">
+                <i class="fa fa-area-chart mr-3 text-primary fa-fw"></i>
+                THỐNG KÊ ĐƠN HÀNG
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="~/admin/thongke" class="nav-link text-dark font-italic"  id="HyperLink3" runat="server">
+                <i class="fa fa-bar-chart mr-3 text-primary fa-fw"></i>
+                THỐNG KÊ
+            </a>
+    </li>
+  </ul>
+</div>
+<!-- End vertical navbar -->
+
+
+
+<!-- Page content holder -->
+<div class="page-content p-5" id="content" >
+  <!-- Toggle button -->
+  <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Menu</small></button>
+
+  <!-- Demo content -->
+  
+  </div>
+        
+
+</div>
+</div>
+
+<!-- End demo content -->
+     
+                     
+           <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+           </asp:ContentPlaceHolder>      
     </form>
+
 </body>
-<script type="text/javascript " src="https://localhost:44375/Admins/View/jquery-1.4.2.min.js "></script>
+   
+	<script src="https://localhost:44375/Admins/View/vendor/animsition/js/animsition.min.js"></script>
+
+	<script src="https://localhost:44375/Admins/View/vendor/bootstrap/js/popper.js"></script>
+	<script src="https://localhost:44375/Admins/View/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="https://localhost:44375/Admins/View/vendor/select2/select2.min.js"></script>
+
+	<script src="https://localhost:44375/Admins/View/vendor/daterangepicker/moment.min.js"></script>
+	<script src="https://localhost:44375/Admins/View/vendor/daterangepicker/daterangepicker.js"></script>
+
+	<script src="https://localhost:44375/Admins/View/vendor/countdowntime/countdowntime.js"></script>
+
+	<script src="https://localhost:44375/Admins/View/js/LoginAdmin.js"></script>
+    <script src="https://localhost:44375/Admins/View/js/admin.js"></script>
 
 </html>

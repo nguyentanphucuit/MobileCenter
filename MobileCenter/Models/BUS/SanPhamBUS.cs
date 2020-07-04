@@ -46,10 +46,13 @@ namespace MobileCenter.Models.BUS
             _sanPham.IdSanPham = int.Parse(gv.Rows[0].Cells[0].Text.ToString());
             _sanPham.DanhMucSanPham.TenDanhMucSanPham = gv.Rows[0].Cells[2].Text.ToString();
             _sanPham.IdHinhSanPham = int.Parse(gv.Rows[0].Cells[3].Text.ToString());
+            _sanPham.IdDanhMucSanPham = int.Parse(gv.Rows[0].Cells[6].Text.ToString());
+
         }
         public void SelectByDanhMuc()
         {
             SanPhamDAL spDAL = new SanPhamDAL();
+            spDAL._sanPham = this._sanPham;
             KetQua = spDAL.SelectByDanhMuc();
         }
 
@@ -70,6 +73,13 @@ namespace MobileCenter.Models.BUS
         {
             SanPhamDAL searchSanPham = new SanPhamDAL();
             KetQua = searchSanPham.Search(keyword);
+        }
+
+        public void Delete()
+        {
+            SanPhamDAL deleteSanPham = new SanPhamDAL();
+            deleteSanPham._sanPham = this._sanPham;
+            deleteSanPham.Delete();
         }
     }
 }
