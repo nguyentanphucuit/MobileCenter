@@ -21,9 +21,9 @@ namespace MobileCenter.View
             if (!IsPostBack)
             {
                 ((Home)this.Master).isVisible = false;
-
-                Label lblWelcome = (Label)Master.FindControl("lblChao");
-                lblWelcome.Text = "Xin chào, " + base._NguoiDungHienTai.HoTen;
+                ((Home)this.Master).isLogIn = false;
+                //Label lblWelcome = (Label)Master.FindControl("lblChao");
+                //lblWelcome.Text = "Xin chào, " + base._NguoiDungHienTai.HoTen;
                 HienThiGioHang();
             }
         }
@@ -52,32 +52,24 @@ namespace MobileCenter.View
             {
                 _tongtien += Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "ThanhTien"));
             }
-            lblTotal.Text = _tongtien.ToString() + " VND";
+            lblTotal.Text = _tongtien.ToString("###,###,###") + " VND";
         }
         //---------Tạo đơn hàng, dựa số liệu trên gridview giỏ hàng-------------------
         private void GuiDonHang()
         {
             DonHangBUS donHangBUS = new DonHangBUS();
             donHangBUS._donhang = _donhang;
-
-            try
-            {
-                donHangBUS.Insert();
-            }
-            catch
-            {
-                Response.Redirect("Trangloi.aspx");
-            }
-            Response.Redirect("GioiThieuSanPham.aspx");
+            donHangBUS.Insert();
+            Response.Redirect("~/customer/invoice");
         }
         //---------------Sự kiện cho nút tiếp tục mua hàng----------------------------------
-        protected void ImageButtonTieptucmuahang_Click(object sender, ImageClickEventArgs e)
+        protected void ImageButtonTieptucmuahang_Click(object sender, EventArgs e)
         {
-            Response.Redirect("GioiThieuSanPham.aspx");
+            Response.Redirect("~");
         }
         //---------------Sự kiện cho nút tạo và gửi đơn hàng-----------------
 
-        protected void ImageButtonTaovaguidonhang_Click(object sender, ImageClickEventArgs e)
+        protected void ImageButtonTaovaguidonhang_Click(object sender, EventArgs e)
         {
             DonHangDTO donHang = new DonHangDTO();
             SanPhamDTO[] dsSanPham = new SanPhamDTO[gridgiohang.Rows.Count];
@@ -93,7 +85,7 @@ namespace MobileCenter.View
                     Label lblSoLuong = (Label)grow.FindControl("lblSoLuong");
                     sanPham.SoLuong = int.Parse(lblSoLuong.Text);
                     Label lblDonGia = (Label)grow.FindControl("lblDonGia");
-                    sanPham.GiaSanPham = Convert.ToInt32(lblDonGia.Text.Replace("VND", ""));
+                    sanPham.GiaSanPham = Convert.ToInt32(lblDonGia.Text.Replace("VND", "").Replace(",", ""));
                     dsSanPham.SetValue(sanPham, grow.DataItemIndex);
                 }
             }
@@ -102,6 +94,12 @@ namespace MobileCenter.View
             //Giả lập tạo TransactionID
             _donhang.MaGiaoDich = Guid.NewGuid().ToString();
             GuiDonHang();
+        }
+
+        protected void gridgiohang_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridgiohang.PageIndex = e.NewPageIndex;
+            HienThiGioHang();
         }
     }
 }

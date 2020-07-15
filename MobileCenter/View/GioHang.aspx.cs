@@ -1,39 +1,49 @@
-﻿using MobileCenter.Models;
+﻿using MobileCenter.App_User;
+using MobileCenter.Models;
 using MobileCenter.Models.BUS;
 using MobileCenter.Models.DTO;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace MobileCenter.View
 {
 
-    public partial class GioHang : System.Web.UI.Page
+    public partial class GioHang : NguoiDungHienTai
     {
         private decimal _tongtien;
+        private int dem = 0;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            gridgiohang.PageSize = 10;
             if (!IsPostBack)
             {
-                ((Home)this.Master).isVisible = false;
                 HienThiGioHang();
+                ((Home)this.Master).isVisible = false;
+                if (base._NguoiDungHienTai == null)
+                    ((Home)this.Master).isLogIn = true;
+                else
+                    ((Home)this.Master).isLogIn = false;
             }
         }
 
         private void HienThiGioHang()
         {
+            dem = 0;
             GioHangDTO gioHang = new GioHangDTO();
             gioHang.CartGuid = CartGUID;
             GioHangBUS gioHangBUS = new GioHangBUS();
             gioHangBUS._gioHang = gioHang;
-            gioHangBUS.Select();
+            gioHangBUS.Select(); gioHangBUS.Select();
             gridgiohang.DataSource = gioHangBUS.KetQua;
             gridgiohang.DataBind();
+            foreach (GridViewRow row in gridgiohang.Rows)
+            {
+                TextBox quantity = (TextBox)row.FindControl("textQuantity");
+                dem += int.Parse(quantity.Text);
+            }
+            Label count = (Label)((Home)this.Master).FindControl("productQuantity");
+            count.Text = dem.ToString();
         }
         private string CartGUID
         {
@@ -41,7 +51,7 @@ namespace MobileCenter.View
         }
         protected void ImageButtontieptucmuahang_Click(object sender, EventArgs e)
         {
-            Response.Redirect("gioithieusanpham.aspx");
+            Response.Redirect("~");
         }
         protected void ImageButtoncapnhatthaydoi_Click(object sender, EventArgs e)
         {
@@ -50,24 +60,10 @@ namespace MobileCenter.View
                 if (row.RowType == DataControlRowType.DataRow)
                 {
                     DataKey data = gridgiohang.DataKeys[row.DataItemIndex];//lay du lieu cua cot lam khoa
-                    CheckBox check = (CheckBox)row.FindControl("checkboxDelete");
-                    if (check.Checked)
-                    {
-                        Delete(int.Parse(data.Values["IdGioHang"].ToString()));
-                        //IDgiohang la gia tri cua thuoc tinh DataKeyNames="IDgiohang" trong gridview
-                        // ma ta tao trong file giao dien giohang.aspx
-                    }
-
                     //-------------------Cập nhật thay đổi số lượng sản phẩm trong TextBox--------------------
                     TextBox textmoi = (TextBox)row.FindControl("textQuantity");
-                    int giatri_moi_trong_textbox = int.Parse(textmoi.Text);
-                    int giatri_bandau_trong_textbox =
-                    int.Parse(gridgiohang.DataKeys[row.DataItemIndex].Value.ToString());
-                    if (giatri_moi_trong_textbox != giatri_bandau_trong_textbox)
-                    {
-                        Update(int.Parse(data.Values["IdGioHang"].ToString()),
-                        giatri_moi_trong_textbox);
-                    }
+                    int newQuantity = int.Parse(textmoi.Text);
+                    Update(int.Parse(data.Values["IdGioHang"].ToString()), newQuantity);
                 }
             }
             HienThiGioHang();
@@ -79,6 +75,7 @@ namespace MobileCenter.View
                 lblThongBao.Text = "Bạn chưa có sản phẩm nào trong giỏ hàng";
             }
         }
+
         //------------Thủ tục Update------------------
         private void Update(int id, int soluong)
         {
@@ -113,20 +110,47 @@ namespace MobileCenter.View
                 Response.Redirect("Trangloi.aspx");
             }
         }
+
         protected void gridgiohang_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                _tongtien += Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "ThanhTien"));
-            }
-            lblTotal.Text = string.Format(_tongtien.ToString()) + " VND";
+            _tongtien += Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "ThanhTien"));
+            lblTotal.Text = string.Format(_tongtien.ToString("###,###,###")) + " VND";
 
         }
+
         protected void ImageButtonXacnhanthanhtoan_Click(object sender, EventArgs e)
         {
-            Response.Cookies["ReturnURL"].Value = "ThemDonHang.aspx";
-            Response.Redirect("DangNhap.aspx");
+            Response.Cookies["ReturnURL"].Value = "add-bill";
+            if(base._NguoiDungHienTai == null)
+                Response.Redirect("~/customer/signin");
+            else
+                Response.Redirect("~/customer/add-bill");
+        }
+
+        protected void gridgiohang_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            DataKey data = gridgiohang.DataKeys[e.RowIndex];
+            Delete(int.Parse(data.Values["IdGioHang"].ToString()));
+            HienThiGioHang();
+
+            int Dem = gridgiohang.Rows.Count;
+            if (Dem == 0)
+            {
+                lblTotal.Text = "0 VND";
+                lblThongBao.Text = "Bạn chưa có sản phẩm nào trong giỏ hàng";
+            }
+        }
+
+        protected void gridgiohang_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridgiohang.PageIndex = e.NewPageIndex;
+            GioHangDTO gioHang = new GioHangDTO();
+            gioHang.CartGuid = CartGUID;
+            GioHangBUS gioHangBUS = new GioHangBUS();
+            gioHangBUS._gioHang = gioHang;
+            gioHangBUS.Select(); gioHangBUS.Select();
+            gridgiohang.DataSource = gioHangBUS.KetQua;
+            gridgiohang.DataBind();
         }
     }
 

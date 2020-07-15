@@ -47,50 +47,10 @@
 <body>
 
     <form id="form1" runat="server">
-        <%-- <div>
-            <table align="center" border="0" cellpadding="0" cellspacing="0" style="width: 100%">
-
-                <tr>
-                        <td id="menu" runat="server" style="width: 179px; background-color: #ffffff; height: 277px;" valign="top">
-                            <table border="0" cellpadding="0" cellspacing="0" style="width: 179px;">
-                                <nav class="navbar" style="align-items: initial;">
-                                <ul class="nav flex-column">
-                                   <li class="nav-item">
-                                     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/admin/themsanpham">ĐĂNG SẢN PHẨM</asp:HyperLink>
-                                   </li>
-                                   <li class="nav-item">
-                                     <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/admin/sanpham">SẢN PHẨM</asp:HyperLink>
-                                   </li>
-                                   <li class="nav-item">
-                                     <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/admin/thongkedonhang">THỐNG KÊ ĐƠN HÀNG</asp:HyperLink>
-                                   </li>
-                                    <li class="nav-item">
-                                     <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="">TRANG CHỦ</asp:HyperLink>
-                                   </li>
-                                    <li class="nav-item">
-                                     <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/admin/thongke">THỐNG KÊ</asp:HyperLink>
-                                   </li>
-                                    <li class="nav-item">
-                                     &nbsp;<asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">ĐĂNG XUẤT</asp:LinkButton>
-                                   </li>
-
-                                </ul>
-                            </nav>
-                            </table>
-                        </td>
-                    <td >
-                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                        </asp:ContentPlaceHolder>
-                    </td>
-                </tr>
-
-            </table>
-        </div>--%>
-
         <!-- Vertical navbar -->
         <div style="display:flex; justify-content:flex-start;">
             <div runat="server" id="menu">
-                <div class="vertical-nav bg-white" id="sidebar" style="z-index: 11111">
+                <div class="vertical-nav bg-white" id="sidebar">
                     <div class="py-4 px-3 mb-4 bg-light">
                         <div class="media d-flex align-items-center">
                             <img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
@@ -105,7 +65,9 @@
 
                     <ul class="nav flex-column bg-white mb-0">
                         <li class="nav-item">
-                            <a href="~/admin/themsanpham" id="HyperLink1" class="nav-link text-dark" runat="server">
+                            <a href="~/admin/themsanpham" id="HyperLink1" class="
+                                
+                                text-dark" runat="server">
                                 <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
                                 ĐĂNG SẢN PHẨM
                             </a>
@@ -148,14 +110,19 @@
                 <!-- Page content holder -->
                 <div class="page-content p-2 pt-5" id="content">
                     <!-- Toggle button -->
-                    <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Menu</small></button>
+                    <button id="sidebarCollapse" type="button" class="btn btn-light bg-white" style="border-radius: 1000%;
+                        height: 2.5rem;
+                        width: 2.5rem;
+                        transform: translateX(-20px);
+                        box-shadow: 0 1px 1px rgba(0,0,0,.1);
+                        "><i class="fa fa-arrow-right"></i></button>
                     <!-- Demo content -->
                 </div>
             </div>
 
         <!-- End demo content -->
 
-            <div style="display:flex; justify-content:center; align-items:center; width:100%;">
+            <div style="display:flex; justify-content:center; align-items:center; width:100%">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </div>

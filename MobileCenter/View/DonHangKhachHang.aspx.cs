@@ -16,9 +16,13 @@ namespace MobileCenter.View
             if (!IsPostBack)
             {
                 ((Home)this.Master).isVisible = false;
+                if (base._NguoiDungHienTai == null)
+                    ((Home)this.Master).isLogIn = true;
+                else
+                    ((Home)this.Master).isLogIn = false;
 
                 Label lblWelcome = (Label)Master.FindControl("lblchao");
-                lblWelcome.Text = "Xin chào, " + base._NguoiDungHienTai.HoTen;
+                //lblWelcome.Text = "Xin chào, " + base._NguoiDungHienTai.HoTen;
                 HienThiDonHang();
             }
         }
@@ -39,10 +43,16 @@ namespace MobileCenter.View
             gridviewOrders.DataSource = donHangBUS.KetQua;
             gridviewOrders.DataBind();
         }
-        protected void ImageButtontrove_Click(object sender, ImageClickEventArgs e)
+        protected void ImageButtontrove_Click(object sender, EventArgs e)
         {
-            Response.Redirect("GioiThieuSanPham.aspx");
+            Response.Redirect("~");
 
+        }
+
+        protected void gridviewOrders_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridviewOrders.PageIndex = e.NewPageIndex;
+            HienThiDonHang();
         }
     }
 }

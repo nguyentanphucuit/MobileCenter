@@ -1,16 +1,21 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.master.cs" Inherits="MobileCenter.View.Home" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" >
+ 
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Moonly Center - Trung tâm mua bán sản phẩm chính hãng Sony</title>
-      <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-      <meta name="description" content="A Community Based WordPress Theme" />
+
+    <title>Mobile Center - Trung tâm mua bán sản phẩm điện tử chính hãng</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="A Community Based WordPress Theme" />
     <!-- slider -->
+    
     <link rel="stylesheet" type="text/css" href="~/Admins/View/affix.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="~/Admins/View/style.css" media="screen" />
+   
 
+<%--    <script type="text/javascript " src="https://localhost:44375/Admins/View/jquery-1.4.2.min.js "></script>
+    <script type="text/javascript" src="https://localhost:44375/Admins/View/script.js"></script>--%>
     <link rel="stylesheet" type="text/css" href="https://localhost:44375/css/style.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="https://localhost:44375/css/menusm.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="https://localhost:44375/css/pagenavi-css.css" media="screen" />
@@ -20,341 +25,449 @@
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.5/css/swiper.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.5/js/swiper.min.js"></script>	
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.5/js/swiper.min.js"></script>
+     <link rel="icon" type="image/png" href="~/Admins/View/images/icons/logo-title.png" />
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Admins/View/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+<%--    <link rel="stylesheet" type="text/css" href="~/Admins/View/fonts/font-awesome-4.7.0/css/font-awesome.min.css">--%>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Admins/View/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Admins/View/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Admins/View/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Admins/View/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Admins/View/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Admins/View/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Admins/View/css/util.css" media="screen"/>	
+    <link rel="stylesheet" type="text/css" href="~/Admins/View/css/main.css" media="screen"/>
+    
 </head>
- <body class="html_bg">
-      <form id="form1" runat="server">
-          <div>
-            <asp:GridView ID="dtlSanpham" runat="server" AutoGenerateColumns="False" CssClass="menuDM">
+<body class="html_bg">
+    <form id="form1" runat="server">
+        <div>
+            <asp:GridView ID="dtlSanpham" runat="server" AutoGenerateColumns="False">
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <nav class="navbar" style="align-items: center;">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item <%#HttpContext.Current.Request.Url.Query == "?IdDanhMucSanPham=1" ? "active" : "" %>">
-                                        <asp:HyperLink ID="HyperLink1" runat="server" 
-                                            NavigateUrl='<%# Eval("IdDanhMucSanPham","~/View/SanPhamTheoDanhMuc.aspx?IdDanhMucSanPham=1") %>'>LAPTOP</asp:HyperLink>
+                            <div class="vertical-nav bg-whitesmoke" id="sidebar" style="z-index: 11111; font-size: 13px;">
+                                <ul class="nav flex-column bg-white mb-0 justify-content-end" >
+                                    <li  class="nav-item <%#HttpContext.Current.Request.Url.Query == "?IdDanhMucSanPham=1" ? "active" : "" %>">
+                                        <a style="font-size: 13px;" href='<%# Eval("IdDanhMucSanPham","~/customer/product?IdDanhMucSanPham=1") %>' id="HyperLink1" class="nav-link text-primary" runat="server">
+                                            <i class="fa fa-laptop mr-3 text-primary fa-fw"></i>
+                                            LAPTOP</a>
                                     </li>
                                     <li class="nav-item <%#HttpContext.Current.Request.Url.Query == "?IdDanhMucSanPham=2" ? "active" : "" %>">
-                                        <asp:HyperLink ID="HyperLink2" runat="server"  CssClass ="TIVI"
-                                            NavigateUrl='<%# Eval("IdDanhMucSanPham","~/View/SanPhamTheoDanhMuc.aspx?IdDanhMucSanPham=2") %>'>TIVI</asp:HyperLink>
+                                        <a style="font-size: 13px" href='<%# Eval("IdDanhMucSanPham","~/customer/product?IdDanhMucSanPham=2") %>' id="HyperLink2" class="nav-link text-primary" runat="server">
+                                            <i class="fa fa-television mr-3 text-primary fa-fw"></i>
+                                            TIVI</a>
                                     </li>
                                     <li class="nav-item <%#HttpContext.Current.Request.Url.Query == "?IdDanhMucSanPham=3" ? "active" : "" %>">
-                                        <asp:HyperLink ID="HyperLink3" runat="server" 
-                                            NavigateUrl='<%# Eval("IdDanhMucSanPham","~/View/SanPhamTheoDanhMuc.aspx?IdDanhMucSanPham=3") %>'>TABLET</asp:HyperLink>
+                                        <a style="font-size: 13px" href='<%# Eval("IdDanhMucSanPham","~/customer/product?IdDanhMucSanPham=3") %>' id="HyperLink3" class="nav-link text-primary" runat="server">
+                                            <i class="fa fa-tablet mr-3 text-primary fa-fw"></i>
+                                            TABLET</a>
                                     </li>
                                     <li class="nav-item <%#HttpContext.Current.Request.Url.Query == "?IdDanhMucSanPham=4" ? "active" : "" %>">
-                                        <asp:HyperLink ID="HyperLink4" runat="server" 
-                                            NavigateUrl='<%# Eval("IdDanhMucSanPham","~/View/SanPhamTheoDanhMuc.aspx?IdDanhMucSanPham=4") %>'>PHONE</asp:HyperLink>
+                                        <a style="font-size: 13px" href='<%# Eval("IdDanhMucSanPham","~/customer/product?IdDanhMucSanPham=4") %>' id="HyperLink4" class="nav-link text-primary" runat="server">
+                                            <i class="fa fa-mobile mr-3 text-primary fa-fw"></i>
+                                            PHONE</a>
                                     </li>
                                     <li class="nav-item <%#HttpContext.Current.Request.Url.Query == "?IdDanhMucSanPham=5" ? "active" : "" %>">
-                                        <asp:HyperLink ID="HyperLink5" runat="server" 
-                                            NavigateUrl='<%# Eval("IdDanhMucSanPham","~/View/SanPhamTheoDanhMuc.aspx?IdDanhMucSanPham=5") %>'>MÁY NGHE NHẠC</asp:HyperLink>
+                                        <a style="font-size: 13px" href='<%# Eval("IdDanhMucSanPham","~/customer/product?IdDanhMucSanPham=5") %>' id="HyperLink5" class="nav-link text-primary" runat="server">
+                                            <i class="fa fa-music mr-3 text-primary fa-fw"></i>
+                                            MÁY NGHE NHẠC</a>
                                     </li>
                                     <li class="nav-item <%#HttpContext.Current.Request.Url.Query == "?IdDanhMucSanPham=6" ? "active" : "" %>">
-                                        <asp:HyperLink ID="HyperLink6" runat="server" 
-                                            NavigateUrl='<%# Eval("IdDanhMucSanPham","~/View/SanPhamTheoDanhMuc.aspx?IdDanhMucSanPham=6") %>'>MÁY GHI ÂM</asp:HyperLink>
+                                        <a style="font-size: 13px" href='<%# Eval("IdDanhMucSanPham","~/customer/product?IdDanhMucSanPham=6") %>' id="HyperLink6" class="nav-link text-primary" runat="server">
+                                            <i class="fa fa-mobile mr-3 text-primary fa-fw"></i>
+                                            MÁY GHI ÂM</a>
                                     </li>
                                     <li class="nav-item <%#HttpContext.Current.Request.Url.Query == "?IdDanhMucSanPham=7" ? "active" : "" %>">
-                                        <asp:HyperLink ID="HyperLink7" runat="server" 
-                                            NavigateUrl='<%# Eval("IdDanhMucSanPham","~/View/SanPhamTheoDanhMuc.aspx?IdDanhMucSanPham=7") %>'>MÁY ẢNH</asp:HyperLink>
+                                        <a style="font-size: 13px" href='<%# Eval("IdDanhMucSanPham","~/customer/product?IdDanhMucSanPham=7") %>' id="HyperLink7" class="nav-link text-primary" runat="server">
+                                            <i class="fa fa-camera mr-3 text-primary fa-fw"></i>
+                                            MÁY ẢNH</a>
                                     </li>
-                                </ul> 
-                            </nav>
+                                </ul>
+                            </div>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
-            </asp:GridView> 
+            </asp:GridView>
+
+            <%--Hiện số người online--%>
+            <%--<div class="nav" style="font-size:16px">
+                <asp:Label runat="server">Số người online: </asp:Label>
+                <asp:Label ID="lblOnline" runat="server" Text="lblOnline"></asp:Label>
+            </div>--%>
         </div>
-         
-         <div>
+
+        <div>
             <div id="page">
-               <div id="header">
-                  <div class="logo">
-                        <h1><a href="https://localhost:44375">LOGO<small class="slogan">Anything</small></a></h1>
-                  </div>                    
-                    <div class="topnav">
-                        <ul class="menusm">
-                            <a href="https://localhost:44375/customer/giohang"><i class="fa fa-shopping-cart" style="font-size: 30px"></i></a>
-                        </ul>
-                    </div>
-                    <div class="topnav">
-                        <div class="md-form active-cyan active-cyan-2 mb-3">
-                            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                <div id="header">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px; margin-bottom: 15px;">
+                        <div class="logo" style="width:200px">
+                            <a href="https://localhost:44375" style="font-size: 40px"><img src="https://localhost:44375/images/logo.png" style="width: 100%;" /></a>
                         </div>
+                        <div class="input-group md-form form-sm form-2 pl-0 w-50" style="height: 30px;">
+                            <asp:TextBox ID="searchBy" runat="server" CssClass="form-control y-0 py-1 h-100" placeholder="Search" aria-label="Search"></asp:TextBox>
+                            <div class="input-group-append">
+                                <asp:LinkButton class="input-group-text text-info" id="btnSearch" runat="server" OnClick="btnSearch_Click"><i class="fa fa-search" aria-hidden="true"></i></asp:LinkButton>        
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: row; align-items: center;">
+                            <div id="authen" runat="server">
+                                <asp:HyperLink CssClass="btn btn-outline-primary btn-lg" ID="HyperLink11" runat="server" NavigateUrl="~/customer/invoice">Lịch sử</asp:HyperLink>
+                                <asp:LinkButton class="btn btn-outline-primary btn-lg" runat="server" OnClick="btnDangXuat_Click" ID="btnDangXuat" OnClientClick="return confirm('Do you want to log out?');return false;">Đăng xuất</asp:LinkButton>                                
+                            </div>
+                            <div id="anonymous" runat="server">
+                                <asp:HyperLink CssClass="btn btn-outline-primary btn-lg" ID="HyperLink8" runat="server" NavigateUrl="~/customer/signin">Đăng nhập</asp:HyperLink>
+                                <asp:HyperLink CssClass="btn btn-outline-primary btn-lg" ID="HyperLink9" runat="server" NavigateUrl="~/customer/signup">Đăng ký</asp:HyperLink>
+                            </div>
+                            <div class="shopping-card">
+                                <ul class="menusm" style="margin-left: 10px; margin-top: -2px;float: right;">
+                                    <ul class="menusm" style="margin-left: 0px; float: right;">
+                                        <asp:Label CssClass="numberCircle" Text="0" ID="productQuantity" runat="server"> </asp:Label>
+                                    </ul>
+                                    <ul class="menusm" style="margin-left: 10px; float: right; padding-top: -6px">
+                                        <a href="https://localhost:44375/customer/cart"><i class="fa fa-shopping-cart" style="font-size: 30px;cursor: pointer;background: radial-gradient(circle at 33% 100%, #0345fc 28%, #03dffc 91%, #0394fc 85%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;display: inline;color:red"></i></a>
+                                    </ul>
+                                </ul>
+                            </div>
+                        </div>
+                        </div>                                             
                     </div>
-                  <div class="clr"></div>
-    <!-- /navigation -->  
-   <div class="clr"></div>--%>
-                  <div class="row" id="slideShow" runat="server">
-                        <div class="column">
+                   
+                    <!-- /navigation -->
+                    <div class="clr"></div>
+                    <div class="row" id="slideShow" runat="server">
+                        <div class="first-column">
                             <div class="slideshow-container">
-
                                 <div class="mySlides fade">
                                     <div class="numbertext"></div>
-                                    <img src="https://localhost:44375/images/slide1.jpg" style="width:100%;"/>
+                                    <img src="https://localhost:44375/images/slide1.png" style="width: 100%;" />
                                 </div>
 
                                 <div class="mySlides fade">
                                     <div class="numbertext"></div>
-                                    <img src="https://localhost:44375/images/slide2.jpg" style="width:100%"/>
+                                    <img src="https://localhost:44375/images/slide2.png" style="width: 100%" />
                                 </div>
 
                                 <div class="mySlides fade">
                                     <div class="numbertext"></div>
-                                    <img src="https://localhost:44375/images/slide3.jpg" style="width:100%"/>
+                                    <img src="https://localhost:44375/images/slide3.png" style="width: 100%" />
                                 </div>
 
                                 <div class="mySlides fade">
                                     <div class="numbertext"></div>
-                                    <img src="https://localhost:44375/images/slide4.jpg" style="width:100%"/>
+                                    <img src="https://localhost:44375/images/slide4.png" style="width: 100%" />
                                 </div>
 
-                                <div style="text-align:center; margin-top: 10px;">
+                                <div style="text-align: center; margin-top: 10px;">
                                     <span class="dot"></span>
                                     <span class="dot"></span>
                                     <span class="dot"></span>
                                     <span class="dot"></span>
                                 </div>
                             </div>
-                            <br>
+                            <br />
                         </div>
-                        <div class="column" style="margin-top: 10px;">
+                        <div class="second-column">
                             <div class="row" id="news">
-                                <div class="card">
-                                    <div class="row no-gutters" style=" justify-content: flex-start; align-items: center;flex-wrap:nowrap ; display: flex;">
-                                        <div class="col-auto" style="width: 50%;">
-                                            <img src="https://localhost:44375/images/slide1.jpg" class="img-fluid"/>
+                                <div class="card" style="border: none; background-color: whitesmoke; width: 405px">
+                                    <a href="https://www.thegioididong.com/tin-tuc/viec-quan-li-cac-tab-tren-chrome-gio-day-lai-don-gian-hon-bao-gio-het-1267452" class="row no-gutters" style="justify-content: flex-start; align-items: center; flex-wrap: nowrap; display: flex; font-size: 14px">
+                                        <div class="col-auto">
+                                            <img src="https://localhost:44375/images/info.jpg" height="98px" width="140px" />
                                         </div>
-                                        <div class="" style=" padding-left: 10px;" >
+                                        <div style="padding-left: 10px;">
                                             <div class="card-block">
-                                                <p class="card-text">
-                                                    MUA PREDATOR LCD TÍCH HỢP G-SYNC TẶNG MOUSE PREDATOR CESTUS 300
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                              </div>    
-                            </div>
-                            <div class="row" id="news">
-                                <div class="card">
-                            <div class="row no-gutters" style=" justify-content: flex-start; align-items: center;flex-wrap:nowrap ; display: flex;">
-                                <div class="col-auto" style="width: 50%;">
-                                    <img src="https://localhost:44375/images/slide1.jpg" class="img-fluid" alt="">
-                                </div>
-                                <div class="" style=" padding-left: 10px;" >
-                                    <div class="card-block">
-                                        <p class="card-text">
-                                            MUA PREDATOR LCD TÍCH HỢP G-SYNC TẶNG MOUSE PREDATOR CESTUS 300
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                      </div>
-                            </div>
-                            <div class="row" id="news">
-                                <div class="card">
-                            <div class="row no-gutters" style=" justify-content: flex-start; align-items: center;flex-wrap:nowrap ; display: flex;">
-                                <div class="col-auto" style="width: 50%;">
-                                    <img src="https://localhost:44375/images/slide1.jpg" class="img-fluid" alt="">
-                                </div>
-                                <div class="" style=" padding-left: 10px;" >
-                                    <div class="card-block">
-                                        <p class="card-text">
-                                            MUA PREDATOR LCD TÍCH HỢP G-SYNC TẶNG MOUSE PREDATOR CESTUS 300
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                      </div>
-                            </div>
-                        </div>
-                  <div class="clr"></div>
-      </div>
-    <!--/searchform --><div class="clr"></div>
-  </div> <!--/header -->
-  <div class="sanpham">
-      <asp:Label ID="lblchao" runat="server" Text=""></asp:Label>
-      <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-      </asp:ContentPlaceHolder>             
-  </div>
-    <div class ="card-area row" id="cardArea" runat="server">
-                        <div class="card bg-light" style="margin-bottom: 10px;">
-                            <div class="card-header"><h2>Hot Mobile in June</h2></div>
-                            <div class="card-body row" style="padding:0px;">
-                                <div class="card-group col">
-                                    <div class="card card-img" style="width: 10rem;" >
-                                        <img class="card-img-top " src="images/slide1.jpg" >
-                                        <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-group col" >      
-                                    <div class="card ">
-                                      <img class="card-img-top" src="images/slide1.jpg" alt="Card image cap">
-                                      <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                      </div>
-                                    </div>
-                                    <div class="card ">
-                                      <img class="card-img-top " src="images/slide1.jpg" alt="Card image cap">
-                                      <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                                      </div>
-                                    </div>
-                                    <div class="card ">
-                                      <img class="card-img-top " src="images/slide1.jpg" alt="Card image cap">
-                                      <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                                        
-                                      </div>
-                                    </div>
-                                  </div>
-                                    
-                                  </div>
-                            </div>
-                            <div class="card bg-light" style="margin-bottom: 10px;" >
-                                <div class="card-header"><h2>Hot Mobile in June</h2></div>
-                                <div class="card-body row" style="padding:0px;">
-                                    <div class="card-group col">
-                                        <div class="card card-img" style="width: 10rem;" >
-                                            <img class="card-img-top " src="images/slide1.jpg" >
-                                            <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-group col" >      
-                                        <div class="card ">
-                                          <img class="card-img-top" src="images/slide1.jpg" alt="Card image cap">
-                                          <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                          </div>
-                                        </div>
-                                        <div class="card ">
-                                          <img class="card-img-top " src="images/slide1.jpg" alt="Card image cap">
-                                          <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                                          </div>
-                                        </div>
-                                        <div class="card ">
-                                          <img class="card-img-top " src="images/slide1.jpg" alt="Card image cap">
-                                          <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                                            
-                                          </div>
-                                        </div>
-                                      </div>
-                                        
-                                      </div>
-                                </div>
-                                <div class="card bg-light" style="margin-bottom: 10px;" >
-                                    <div class="card-header"><h2>Hot Mobile in June</h2></div>
-                                    <div class="card-body row" style="padding:0px;">
-                                        <div class="card-group col">
-                                            <div class="card card-img" style="width: 10rem;" >
-                                                <img class="card-img-top " src="images/slide1.jpg" >
-                                                <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                                <div class="card-link" style="margin-right: 5px">
+                                                    Cách quản lý các Tab trên Google Chrome một cách đơn giản và hiệu quả
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card-group col" >      
-                                            <div class="card ">
-                                              <img class="card-img-top" src="images/slide1.jpg" alt="Card image cap">
-                                              <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                              </div>
-                                            </div>
-                                            <div class="card ">
-                                              <img class="card-img-top " src="images/slide1.jpg" alt="Card image cap">
-                                              <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                                              </div>
-                                            </div>
-                                            <div class="card ">
-                                              <img class="card-img-top " src="images/slide1.jpg" alt="Card image cap">
-                                              <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                                                
-                                              </div>
-                                            </div>
-                                          </div>
-                                            
-                                          </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row" id="news" style="padding-top: 0px;">
+                                <div class="card" style="border: none; background-color: whitesmoke">
+                                    <div class="row no-gutters" style="justify-content: flex-start; align-items: center; flex-wrap: nowrap; display: flex;">
+                                        <a href="https://localhost:44375/customer/product?IdDanhMucSanPham=4" class="col-auto">
+                                            <img src="https://localhost:44375/images/safe1.png" alt="" height="98px" width="405px" />
+                                        </a>
                                     </div>
-                          </div>
-          
-    <div class="clearfix"></div>
-    </div>
-    <div class ="card-area">
-                        <h2>Hot Laptop in June</h2>
-                        
+                                </div>
+                            </div>
+                            <div class="row" id="news" style="padding-top: 0px;">
+                                <div class="card" style="border: none; background-color: whitesmoke">
+                                    <div class="row no-gutters" style="justify-content: flex-start; align-items: center; flex-wrap: nowrap; display: flex;">
+                                        <a href="https://localhost:44375/customer/product?IdDanhMucSanPham=4" class="col-auto">
+                                            <img src="https://localhost:44375/images/safe2.png" alt="" height="98px" width="405px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clr"></div>
                     </div>
-    <div class ="card-area">
-                        <h2>Hot Tablet in June</h2>
+                    <div id="imgAdv" runat="server">
+                        <img src="https://localhost:44375/images/adv.png" style="width: 100%" />
                     </div>
-   
-  </div>  <!--/page -->
-  <div class="clr"></div>
- <div class="footer2 ">
-                <div class="footer2_resize ">
-                    <div class="col col1 ">
-                        <h2>Customer Support</h2>
-                        <ul>
-                            <li><a href="# ">Purchase     1800.1060 (7:30 - 22:00)</a></li>
-                            <li><a href="# ">Complain     1800.1062 (8:00 - 21:30)</a></li>
-                            <li><a href="# ">Warranty     1800.1064 (8:00 - 21:00)</a></li>
-                            <li><a href="# ">Technique    1800.1763 (7:30 - 22:00)</a></li>
-                        </ul>
+                    <!--/searchform -->
+                    <div class="clr"></div>
+                </div>
+                <!--/header -->
+                <div class="sanpham" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                    <asp:Label ID="lblchao" runat="server" Text=""></asp:Label>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div class="card-area row" id="cardArea" runat="server">
+                    <div class="card bg-light" style="margin-bottom: 10px;">
+                        <div class="card-header" style="background-color: rgba(0,0,0,0); border: none; font-size: large; font-weight: bold">
+                            ĐIỆN THOẠI NỔI BẬT NHẤT
+                        </div>
+                        <div class="card-body row" style="padding: 0px;">
+                            <div class="card-group col">
+                                <div class="card card-img" style="width: 10rem; font-size: 16px">
+                                    <img class="card-img-top pb-3" src="https://localhost:44375/images/tile1.jpg" />
+                                    <div>
+                                        <a href="https://localhost:44375/customer/product-detail?IdSanpham=60" class="card-link">Samsung Galaxy A31</a>
+                                    </div>
+                                    <div class="price">5,840,000 VND</div>
+                                </div>
+                            </div>
+                            <div class="card-group col">
+                                <div class="card card-img hovereffect text-lg-left">
+                                    <img class="card-img-top pt-5" src="https://localhost:44375/HinhSanPham/iphone-11-pro-max-(19).jpg" alt="Card image cap">
+                                    <div class="card-body p-0 pt-4">
+                                        <a href="https://localhost:44375/customer/product-detail?IdSanpham=1" class="card-link">IPhone 11 Pro Max 64GB</a>
+                                        <div class="price">31,990,000 VND</div>
+                                        <p class="card-des">Tặng 2 suất mua Đồng hồ thời trang giảm 40% (Không áp dụng thêm khuyến mãi khác)</p>
+                                    </div>
+                                </div>
+                                <div class="card card-img hovereffect text-lg-left">
+                                    <img class="card-img-top pt-5" src="https://localhost:44375/HinhSanPham/oppo-reno3-(13).jpg" alt="Card image cap">
+                                    <div class="card-body p-0 pt-4">
+                                        <a href="https://localhost:44375/customer/product-detail?IdSanpham=30" class="card-link">Oppo Reno 3</a>
+                                        <div class="price">8,490,000 VND</div>
+                                        <p class="card-des">Tặng 2 suất mua Đồng hồ thời trang giảm 40% (Không áp dụng thêm khuyến mãi khác)</p>
+                                    </div>
+                                </div>
+                                <div class="card card-img hovereffect text-lg-left">
+                                    <img class="card-img-top pt-5" src="https://localhost:44375/HinhSanPham/samsung-galaxy-fold-black-600x600.jpg" alt="Card image cap" />
+                                    <div class="card-body p-0 pt-4">
+                                        <a href="https://localhost:44375/customer/product-detail?IdSanpham=58" class="card-link">Samsung Galaxy Fold</a>
+                                        <div class="price">50,000,000 VND</div>
+                                        <p class="card-des">Tặng 2 suất mua Đồng hồ thời trang giảm 40% (Không áp dụng thêm khuyến mãi khác)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col col2 ">
-                        <h2>Purchase and Warranty Policy</h2>
-                        <ul>
-                            <li><a href="# ">Security</a></li>
-                            <li><a href="# ">Exchange and Refund</a></li>
-                            <li><a href="# ">Transport</a></li>
-                        </ul>
+                    <div class="card bg-light" style="margin-bottom: 10px;">
+                        <div class="card-header" style="background-color: rgba(0,0,0,0); border: none; font-size: large; font-weight: bold">
+                            LAP TOP NỔI BẬT NHẤT
+                        </div>
+                        <div class="card-body row" style="padding: 0px;">
+                            <div class="card-group col">
+                                <div class="card card-img" style="width: 10rem; font-size: 16px">
+                                    <img class="card-img-top pb-3" src="https://localhost:44375/images/title3.jpg" />
+                                    <div>
+                                        <a href="https://localhost:44375/customer/product-detail?IdSanpham=61" class="card-link">Lenovo IdeaPad Slim 3 15IIL05 i3 1005G1 (81WE003RVN)</a>
+                                    </div>
+                                    <div class="price">12,990,000 VND</div>
+                                </div>
+                            </div>
+                            <div class="card-group col">
+                                <div class="card card-img hovereffect text-lg-left">
+                                    <img class="card-img-top pt-5" src="https://localhost:44375/HinhSanPham/apple-macbook-pro-2019-touch-i5-8gb-256gb-mv962sa-1-600x600.jpg" alt="Card image cap" />
+                                    <div class="card-body p-0 pt-4">
+                                        <a href="https://localhost:44375/customer/product-detail?IdSanpham=25" class="card-link">Macbook pro 2019 i5 8GB</a>
+                                        <div class="price">39,490,000 VND</div>
+                                        <p class="card-des">Tặng túi chống sốc Laptop 15.6 inch eValu LMP-T002A và 1 K.mãi khác</p>
+                                    </div>
+                                </div>
+                                <div class="card card-img hovereffect text-lg-left">
+                                    <img class="card-img-top pt-5" src="https://localhost:44375/HinhSanPham/hp-15s-du0063tu-i5-8265u-4gb-1tb-win10-6zf63pa-204053-400x400.jpg" alt="Card image cap">
+                                    <div class="card-body p-0 pt-4">
+                                        <a href="https://localhost:44375/customer/product-detail?IdSanpham=32" class="card-link">HP 15s du0063TU i5 8265U</a>
+                                        <div class="price">18,990,000 VND</div>
+                                        <p class="card-des">Tặng túi chống sốc Laptop 15.6 inch eValu LMP-T002A và 2 K.mãi khác</p>
+                                    </div>
+                                </div>
+                                    <div class="card card-img hovereffect text-lg-left">
+                                        <img class="card-img-top pt-5" src="https://localhost:44375/HinhSanPham/acer-aspire-3-a315-nx-heesv-00d-221251-1-400x400.jpg" alt="Card image cap" />
+                                        <div class="card-body p-0 pt-4">
+                                            <a href="https://localhost:44375/customer/product-detail?IdSanpham=26" class="card-link">Acer Aspire 3 A315 i5</a>
+                                            <div class="price">19,000,000 VND</div>
+                                            <p class="card-des">Tặng túi chống sốc Laptop 15.6 inch eValu LMP-T002A và 2 K.mãi khác</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="card bg-light" style="margin-bottom: 10px;">
+                        <div class="card-header" style="background-color: rgba(0,0,0,0); border: none; font-size: large; font-weight: bold">
+                            TABLET NỔI BẬT NHẤT
+                        </div>
+                        <div class="card-body row" style="padding: 0px;">
+                            <div class="card-group col">
+                                <div class="card card-img" style="width: 10rem; font-size: 16px">
+                                    <img class="card-img-top pb-3" src="https://localhost:44375/images/title4.jpg" />
+                                    <div>
+                                        <a href="https://localhost:44375/customer/product-detail?IdSanpham=62" class="card-link">Samsung Galaxy Tab S6 Lite</a>
+                                    </div>
+                                    <div class="price">9,990,000 VND</div>
+                                </div>
+                            </div>
+                            <div class="card-group col">
+                                <div class="card card-img hovereffect text-lg-left">
+                                    <img class="card-img-top pt-5" src="https://localhost:44375/HinhSanPham/ipad-10-2-inch-wifi-32gb-2019-gold-400x400.jpg" alt="Card image cap" />
+                                    <div class="card-body p-0 pt-4">
+                                        <a href="https://localhost:44375/customer/product-detail?IdSanpham=5" class="card-link">Ipad 10.2 inch Wifi (2019) 32GB</a>
+                                        <div class="price">9,490,000 VND</div>
+                                        <p class="card-des">Tặng 2 suất mua Đồng hồ thời trang giảm 40% (Không áp dụng thêm khuyến mãi khác) và 1 K.mãi khác</p>
+                                    </div>
+                                </div>
+                                <div class="card card-img hovereffect text-lg-left">
+                                    <img class="card-img-top pt-5" src="https://localhost:44375/HinhSanPham/samsung-galaxy-tab-a8-plus-p205-(8).jpg" alt="Card image cap" />
+                                    <div class="card-body p-0 pt-4">
+                                        <a href="https://localhost:44375/customer/product-detail?IdSanpham=7" class="card-link">Samsung Galaxy Tab A8 Plus</a>
+                                        <div class="price">3,690,000 VND</div>
+                                        <p class="card-des">Tặng 2 suất mua Đồng hồ thời trang giảm 40% (Không áp dụng thêm khuyến mãi khác) và 2 K.mãi khác</p>
+                                    </div>
+                                </div>
+                                <div class="card card-img hovereffect text-lg-left">
+                                    <img class="card-img-top pt-5" src="https://localhost:44375/HinhSanPham/huawei-mediapad-t5-(14).jpg" alt="Card image cap" />
+                                    <div class="card-body p-0 pt-4">
+                                        <a href="https://localhost:44375/customer/product-detail?IdSanpham=28" class="card-link">Huawei Mediapad T5</a>
+                                        <div class="price">4,990,000 VND</div>
+                                        <p class="card-des">Tặng 2 suất mua Đồng hồ thời trang giảm 40% (Không áp dụng thêm khuyến mãi khác) và 1 K.mãi khác</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col col4 ">
-                        <h2>Contact Infomation</h2>
-                        <p><span>Address</span> University of Information Technology</p>
-                        <p><span>Telephone:</span> +84-1688-767-549</p>
-                        <p><span>FAX:</span> +458-4578</p>
-                        <p><span>Others:</span> +301 - 0125 - 01258</p>
-                        <p><span>E-mail:</span> <a href=" ">tftcenter@uit.edu.com</a></p>
+                    <div class="card bg-light" style="margin-bottom: 10px;">
+                        <div class="card-header" style="background-color: rgba(0,0,0,0); border: none; font-size: large; font-weight: bold">
+                            TIVI NỔI BẬT NHẤT
+                        </div>
+                        <div class="card-body row" style="padding: 0px;">
+                            <div class="card-group col">
+                                <div class="card card-img" style="width: 10rem; font-size: 16px">
+                                    <img class="card-img-top pb-3" src="https://localhost:44375/images/title5.jpg" />
+                                    <div>
+                                        <a href="https://localhost:44375/customer/product-detail?IdSanpham=60" class="card-link">Smart Tivi LG 4K 55 inch 55UM7400PTA</a>
+                                    </div>
+                                    <div class="price">12,600,000 VND</div>
+                                </div>
+                            </div>
+                            <div class="card-group col">
+                                <div class="card card-img hovereffect text-lg-left">
+                                    <img class="card-img-top pt-5" src="https://localhost:44375/HinhSanPham/lg-49sm8100pta-1-3-org.jpg" alt="Card image cap">
+                                    <div class="card-body p-0 pt-4">
+                                        <a href="https://localhost:44375/customer/product-detail?IdSanpham=17" class="card-link">Smart Tivi NanoCell LG 4K 49 inch</a>
+                                        <div class="price">13,890,000 VND</div>
+                                        <p class="card-des">Tặng 2 suất mua Đồng hồ thời trang giảm 40% (Không áp dụng thêm khuyến mãi khác)</p>
+                                    </div>
+                                </div>
+                                <div class="card card-img hovereffect text-lg-left">
+                                    <img class="card-img-top pt-5" src="https://localhost:44375/HinhSanPham/sony-kdl-43w800g-1-1-org-1-org.jpg" alt="Card image cap">
+                                    <div class="card-body p-0 pt-4">
+                                        <a href="https://localhost:44375/customer/product-detail?IdSanpham=38" class="card-link">Android Tivi Sony 43 inch</a>
+                                        <div class="price">9,600,000 VND</div>
+                                        <p class="card-des">Tặng 2 suất mua Đồng hồ thời trang giảm 40% (Không áp dụng thêm khuyến mãi khác)</p>
+                                    </div>
+                                </div>
+                                <div class="card card-img hovereffect text-lg-left">
+                                    <img class="card-img-top pt-5" src="https://localhost:44375/HinhSanPham/tivi-tcl-40s6500-1-1-org.jpg" alt="Card image cap" />
+                                    <div class="card-body p-0 pt-4">
+                                        <a href="https://localhost:44375/customer/product-detail?IdSanpham=48" class="card-link">Android Tivi TCL 40 inch 40S6500</a>
+                                        <div class="price">5,990,000 VND</div>
+                                        <p class="card-des">Tặng 2 suất mua Đồng hồ thời trang giảm 40% (Không áp dụng thêm khuyến mãi khác)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="clr "></div>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+          <%--  <div class="card-area">
+                <h2>Hot Laptop in June</h2>
+
+            </div>
+            <div class="card-area">
+                <h2>Hot Tablet in June</h2>
+            </div>--%>
+
+        </div>
+        <!--/page -->
+        <div class="clr"></div>
+        <div class="footer2">
+            <div class="flex-c">
+                <div class="col col1">
+                    <div class="titleFooter">Công ty</div>
+                    <ul>
+                        <li><a href="# "><i class="fa fa-info-circle mr-3"></i>Giới thiệu về Mobile Center</a></li>
+                        <li><a href="# "><i class="fa fa-home mr-3"></i>Hệ thống cửa hàng</a></li>
+                        <li><a href="# "><i class="fa fa-phone mr-3"></i>Chăm sóc khách hàng</a></li>
+                    </ul>
+                </div>
+                <div class="col col2">
+                    <div class="titleFooter">Hỗ trợ khách hàng</div>
+                    <ul>
+                        <li><a href="# "><i class="fa fa-phone mr-3"></i>Gọi mua hàng: 1800.1060 (7:30 - 22:00)</a></li>
+                        <li><a href="# "><i class="fa fa-phone mr-3"></i>Gọi khiếu nại: 1800.1062 (8:00 - 21:30)</a></li>
+                        <li><a href="# "><i class="fa fa-phone mr-3"></i>Gọi bảo hành: 1800.1064 (8:00 - 21:00)</a></li>
+                        <li><a href="# "><i class="fa fa-phone mr-3"></i>Kỹ thuật: 1800.1066 (7:30 - 22:00)</a></li>
+                    </ul>
+                </div>
+                <div class="col col3">
+                    <div class="titleFooter">Chính sách mua và đổi trả</div>
+                    <ul>
+                        <li><a href="# "><i class="fa fa-shield mr-3"></i>Bảo hành</a></li>
+                        <li><a href="# "><i class="fa fa-buysellads mr-3"></i>Tìm hiểu về mua trả góp</a></li>
+                        <li><a href="# "><i class="fa fa-telegram mr-3"></i>Giao hàng & Thanh toán</a></li>
+                    </ul>
+                </div>
+                <div class="col col4">
+                    <div class="titleFooter">Thông tin liên hệ</div>
+                    <ul>
+                        <li><a href="# "><i class="fa fa-home mr-3"></i>Địa chỉ: University of Information Technology</a></li>
+                        <li><a href="# "><i class="fa fa-phone mr-3"></i>Tel.: +84-1688-767-549</a></li>
+                        <li><a href="# "><i class="fa fa-print mr-3"></i>FAX: +458-4578</a></li>
+                        <li><a href="# "><i class="fa fa-phone mr-3"></i>Others: +301-0125-01258</a></li>
+                        <li><a href="# "><i class="fa fa-envelope mr-3"></i>E-mail: tftcenter@uit.edu.com</a></li>
+                    </ul>
+                </div>
+                <div class="clr "></div>
+            </div>
+        </div>
+
+        <div id="page_bottom">
+            <div id="footer">
+                <div class="text1">&copy; Copyright <a href="http://www.facebook.com/shiny.phong">CCTM04A</a>. All Rights Reserved</div>
+                <div class="text2">
+                    <a href="https://www.facebook.com/tanphucuit"><i class="fa fa-facebook-f fa-2x fa- mr-5"></i></a>
+                    <a href="https://www.facebook.com/tanphucuit"><i class="fa fa-twitter fa-2x mr-5"></i></a>
+                    <a href="mailto:16520954@gm.uit.edu.vn"><i class="fa fa-google-plus fa-2x mr-5"></i></a>
+                    <a href="https://www.instagram.com/tanphucuit/"><i class="fa fa-instagram fa-2x mr-5"></i></a>
                 </div>
             </div>
-
-<div id="page_bottom">
-  <div id="footer">
-    <div class="text1">&copy; Copyright <a href="http://www.facebook.com/shiny.phong">CCTM04A</a>. All Rights Reserved</div>
-    <div class="text2">Design: (TS) <a href="http://www.facebook.com/shiny.phong">Shiny Phong</a></div>
-  </div>
-  <div class="clr"></div>
-  <!--/footer -->
-</div>
+            <div class="clr"></div>
+            <!--/footer -->
+        </div>
     </form>
 </body>
-     <script type="text/javascript " src="https://localhost:44375/js/jquery-1.4.2.min.js "></script>
+<script type="text/javascript " src="https://localhost:44375/js/jquery-1.4.2.min.js "></script>
 <!-- jQuery -->
 <script type="text/javascript " src="https://localhost:44375/js/coin-slider.min.js "></script>
 <!-- slider -->
@@ -367,4 +480,19 @@
 <script type="text/javascript " src="https://localhost:44375/js/script.js "></script>
 <script type="text/javascript " src="https://localhost:44375/js/slideshow.js "></script>
 <script type="text/javascript" src="https://localhost:44375/js/swiper.js"> </script>
+
+<script src="https://localhost:44375/Admins/View/vendor/animsition/js/animsition.min.js"></script>
+
+<script src="https://localhost:44375/Admins/View/vendor/bootstrap/js/popper.js"></script>
+<script src="https://localhost:44375/Admins/View/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="https://localhost:44375/Admins/View/vendor/select2/select2.min.js"></script>
+
+<script src="https://localhost:44375/Admins/View/vendor/daterangepicker/moment.min.js"></script>
+<script src="https://localhost:44375/Admins/View/vendor/daterangepicker/daterangepicker.js"></script>
+
+<script src="https://localhost:44375/Admins/View/vendor/countdowntime/countdowntime.js"></script>
+
+<script src="https://localhost:44375/Admins/View/js/LoginAdmin.js"></script>
+<script src="https://localhost:44375/Admins/View/js/admin.js"></script>
 </html>

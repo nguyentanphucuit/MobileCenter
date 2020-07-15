@@ -21,7 +21,7 @@ namespace MobileCenter.View
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textUsername;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText textUsername;
 
         /// <summary>
         /// RequiredFieldValidator1 control.
@@ -39,7 +39,7 @@ namespace MobileCenter.View
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textMatKhau;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword textMatKhau;
 
         /// <summary>
         /// RequiredFieldValidator2 control.
@@ -57,24 +57,6 @@ namespace MobileCenter.View
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnDangNhap;
-
-        /// <summary>
-        /// labelMessage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelMessage;
-
-        /// <summary>
-        /// HyperLink1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.Button btnDangNhap;
     }
 }

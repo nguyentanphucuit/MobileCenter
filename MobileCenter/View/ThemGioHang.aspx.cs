@@ -1,4 +1,5 @@
-﻿using MobileCenter.Models;
+﻿using MobileCenter.App_User;
+using MobileCenter.Models;
 using MobileCenter.Models.BUS;
 using MobileCenter.Models.DTO;
 using System;
@@ -10,11 +11,15 @@ using System.Web.UI.WebControls;
 
 namespace MobileCenter.View
 {
-    public partial class ThemGioHang : System.Web.UI.Page
+    public partial class ThemGioHang : NguoiDungHienTai
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             ((Home)this.Master).isVisible = false;
+            if (base._NguoiDungHienTai == null)
+                ((Home)this.Master).isLogIn = true;
+            else
+                ((Home)this.Master).isLogIn = false;
 
             GioHangBUS gioHangBUS = new GioHangBUS();
             GioHangDTO gioHang = new GioHangDTO();
@@ -31,7 +36,7 @@ namespace MobileCenter.View
             {
                 Response.Redirect("Trangloi.aspx");
             }
-            Response.Redirect("GioHang.aspx");
+            Response.Redirect("~/customer/cart");
         }
         private string CartGUID
         {
